@@ -42,6 +42,13 @@ class addLocationsViewController: UIViewController,CLLocationManagerDelegate,MKM
         let gestruge = UILongPressGestureRecognizer(target: self, action: #selector(annotion(gestruge:)))
         gestruge.minimumPressDuration = 2
         mapAdd.addGestureRecognizer(gestruge)
+        
+        let gestrueKeyboard = UITapGestureRecognizer(target: self, action: #selector(closeKeyboard))
+        view.addGestureRecognizer(gestrueKeyboard)
+    }
+    
+    @objc func closeKeyboard(){
+        view.endEditing(true)
     }
     
     @objc func annotion(gestruge : UILongPressGestureRecognizer){
